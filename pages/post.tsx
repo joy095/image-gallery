@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import FileBase64 from "../components/react-file-base64";
-import { FileUploader } from "react-drag-drop-files";
 
 type Props = {};
 
@@ -12,13 +10,13 @@ const post = (props: Props) => {
 
   const { image } = state;
 
-  const onChange = (event) => {
-    event.persist();
+  const onChange = (e) => {
+    e.persist();
     setState((prev) => ({
       ...prev,
-      [event.target.id]: event.target.value,
+      [e.target.id]: e.target.value,
     }));
-    console.log("Current file name: " + event.target.value);
+    console.log("Current file name: " + e.target.value);
     console.log("Previous file name: " + state.image);
   };
 
@@ -57,7 +55,7 @@ const post = (props: Props) => {
           />
         </div>
         <div>
-          <label htmlFor="Title">Description</label>
+          <label htmlFor="Title">Image</label>
           <input
             type="file"
             id="image"
